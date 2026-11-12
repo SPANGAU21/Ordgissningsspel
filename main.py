@@ -15,9 +15,10 @@ rätt = ["_"]*len(ordet)
 j = 0
 
 while True:
-    gissning = input(f"Säg en bokstav! ({j}/10 fel försök kvar) ---> ").lower()  
+    gissning = input(f"Säg en bokstav! ({j}/10 försök kvar) ---> ").lower()  
     if gissning in ordet:
         for i in range(len(ordet)):
             if ordet[i].lower() == gissning:
                 rätt[i] = ordet[i]
     print("".join(rätt).upper())
+    j += 1
