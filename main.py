@@ -16,6 +16,8 @@ j = 0
 
 while True:
     gissning = input(f"Säg en bokstav! ({j}/10 fel försök kvar) ---> ").lower()  
+    if len(gissning) != 1 or not gissning.isalpha():
+        continue
     if gissning in ordet:
         for i in range(len(ordet)):
             if ordet[i].lower() == gissning:
@@ -27,7 +29,7 @@ while True:
             fråga = input("Vill du spela igen? (j/n) ---> ").lower()
             if fråga == "j":
                 ordet = random.choice(ord_lista)
-                rätt = ["_"]*len(ordet)
+                rätt = ["*"]*len(ordet)
                 j = 0
             else:
                 print("Tack för att du spelade!")
