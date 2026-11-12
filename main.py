@@ -12,9 +12,10 @@ ord_lista = [
     "liten", "rolig", "svår", "enkel", "vacker"]
 ordet = random.choice(ord_lista)
 rätt = ["_"]*len(ordet)
+j = 0
 
 while True:
-    gissning = input("Säg en bokstav! ---> ").lower()  
+    gissning = input(f"Säg en bokstav! ({j}/10 fel försök kvar) ---> ").lower()  
     if gissning in ordet:
         for i in range(len(ordet)):
             if ordet[i].lower() == gissning:
