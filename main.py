@@ -11,7 +11,7 @@ ord_lista = [
     "glad", "ledsen", "snabb", "långsam", "stor",
     "liten", "rolig", "svår", "enkel", "vacker"]
 ordet = random.choice(ord_lista)
-rätt = ["_"]*len(ordet)
+rätt = ["*"]*len(ordet)
 j = 0
 
 while True:
@@ -24,5 +24,12 @@ while True:
         j += 1
         if j == 10:
             print(f"Du har förlorat! Ordet var: {ordet.upper()}")
-            break
+            fråga = input("Vill du spela igen? (j/n) ---> ").lower()
+            if fråga == "j":
+                ordet = random.choice(ord_lista)
+                rätt = ["_"]*len(ordet)
+                j = 0
+            else:
+                print("Tack för att du spelade!")
+                break
     print("".join(rätt).upper())
