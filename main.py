@@ -15,10 +15,21 @@ rätt = ["*"]*len(ordet)
 j = 0
 
 while True:
-    gissning = input(f"Säg en bokstav! ({j}/10 försök kvar) ---> ").lower()  
+    gissning = input(f"Säg en bokstav! ({j}/10 fel försök kvar) ---> ").lower()  
     if gissning in ordet:
         for i in range(len(ordet)):
             if ordet[i].lower() == gissning:
                 rätt[i] = ordet[i]
+    else:
+        j += 1
+        if j == 10:
+            print(f"Du har förlorat! Ordet var: {ordet.upper()}")
+            fråga = input("Vill du spela igen? (j/n) ---> ").lower()
+            if fråga == "j":
+                ordet = random.choice(ord_lista)
+                rätt = ["_"]*len(ordet)
+                j = 0
+            else:
+                print("Tack för att du spelade!")
+                break
     print("".join(rätt).upper())
-    j += 1
