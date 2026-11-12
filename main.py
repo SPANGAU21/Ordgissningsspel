@@ -11,7 +11,7 @@ ord_lista = [
     "glad", "ledsen", "snabb", "långsam", "stor",
     "liten", "rolig", "svår", "enkel", "vacker"]
 ordet = random.choice(ord_lista)
-rätt = ["_"]*len(ordet)
+rätt = ["*"]*len(ordet)
 j = 0
 
 while True:
