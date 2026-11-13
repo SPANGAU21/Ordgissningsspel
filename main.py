@@ -14,7 +14,7 @@ ordet = random.choice(ord_lista)
 rätt = ["_"]*len(ordet)
 j = 0
 
-while True:
+while j <= 10:
     gissning = input(f"Säg en bokstav! ({j}/10 försök kvar) ---> ").lower()  
     if gissning in ordet:
         for i in range(len(ordet)):
@@ -22,3 +22,4 @@ while True:
                 rätt[i] = ordet[i]
     print("".join(rätt).upper())
     j += 1
+print("Du förlorade!")
