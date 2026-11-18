@@ -15,6 +15,7 @@ ord_lista = [
 
 ordet = random.choice(ord_lista)
 rätt = ["*"] * len(ordet)
+Gissat = []
 j = 0
 
 while True:
@@ -23,7 +24,6 @@ while True:
     if len(gissning) != 1 or not gissning.isalpha():
         print("Skriv en bokstav!")
         continue
-
     if gissning in ordet:
         for i in range(len(ordet)):
             if ordet[i] == gissning:
