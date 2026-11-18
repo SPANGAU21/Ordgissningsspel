@@ -12,7 +12,7 @@ ord_lista = [
     "liten", "rolig", "svår", "enkel", "vacker"]
 ordet = random.choice(ord_lista)
 rätt = ["*"]*len(ordet)
-j = 0
+felaktiga_gissningar = 0
 
 while True:
     gissning = input(f"Säg en bokstav! ({j}/10 fel försök kvar) ---> ").lower()  
@@ -33,4 +33,4 @@ while True:
                 print("Tack för att du spelade!")
                 break
     print("".join(rätt).upper())
-    1
+    
