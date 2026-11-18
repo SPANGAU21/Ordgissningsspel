@@ -33,3 +33,4 @@ while True:
                 print("Tack för att du spelade!")
                 break
     print("".join(rätt).upper())
+    1
