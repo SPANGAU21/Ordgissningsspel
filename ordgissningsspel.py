@@ -54,6 +54,15 @@ while True:
     print("Fel gissningar:", ", ".join(Fel_gissningar).upper())
     gissning = input(f"Säg en bokstav! ({j}/10 fel försök) ---> ").lower().replace(" ", "")
 
+    if gissning in Gissat:
+        print("Du har redan gissat den bokstaven!")
+        print("".join(rätt).upper())
+
+        continue
+
+    elif gissning not in Gissat:
+        Gissat.append(gissning)
+
     if len(gissning) != 1 or not gissning.isalpha():
         print("Skriv en bokstav!")
         continue
@@ -61,14 +70,6 @@ while True:
         for i in range(len(ordet)):
             if ordet[i] == gissning:
                 rätt[i] = gissning
-    if gissning in Gissat:
-        print("Du har redan gissat den bokstaven!")
-        print("".join(rätt).upper())
-    
-        continue
-        
-    if gissning not in Gissat:
-        Gissat.append(gissning)
 
     else:
         j += 1
@@ -89,25 +90,32 @@ while True:
         continue
 
     if fråga == "j":
-       while True:
-        try:
-            svårighetsgrad = input("Välj svårighetsgrad (lätt/svår): ").lower().replace(" ", "")
+        ändra_svårighetsgrad = input("Vill du ändra svårighetsgrad? (j/n) ---> ").lower()
+        if ändra_svårighetsgrad == "j":
+            while True:
+                try:
+                    svårighetsgrad = input("Välj svårighetsgrad (lätt/svår): ").lower().replace(" ", "")
 
+                    if svårighetsgrad == "lätt":
+                        ordet = random.choice(lätta_ord)
+                        print("Du har valt lätt svårighetsgrad!")
+                        break
+
+                    elif svårighetsgrad == "svår":
+                        ordet = random.choice(svåra_ord)
+                        print("Du har valt svår svårighetsgrad!")
+                        break
+
+                    else:
+                        print("Välj en giltig svårighetsgrad (lätt/svår)!")
+
+                except Exception as e:
+                    print("Ett fel uppstod, försök igen!")
+        elif ändra_svårighetsgrad == "n":
             if svårighetsgrad == "lätt":
                 ordet = random.choice(lätta_ord)
-                print("Du har valt lätt svårighetsgrad!")
-                break
-
             elif svårighetsgrad == "svår":
                 ordet = random.choice(svåra_ord)
-                print("Du har valt svår svårighetsgrad!")
-                break
-
-            else:
-                print("Välj en giltig svårighetsgrad (lätt/svår)!")
-
-        except Exception as e:
-            print("Ett fel uppstod, försök igen!")
         rätt = ["*"] * len(ordet)
         j = 0
         Gissat = []
