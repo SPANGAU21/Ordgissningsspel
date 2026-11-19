@@ -60,6 +60,8 @@ while True:
         ordet = random.choice(ord_lista)
         rätt = ["*"] * len(ordet)
         j = 0
+        Gissat = []
+        Fel_gissningar = []
     else:
         print("Tack för att du spelade!")
         break
