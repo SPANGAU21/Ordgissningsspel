@@ -84,13 +84,18 @@ while True:
 
     elif j >= 10:
         print("Du förlorade! Ordet var:", ordet.upper())
-        fråga = input("Vill du spela igen? (j/n) ---> ").lower()
+        while True:
+            fråga = input("Vill du spela igen? (j/n) ---> ").lower().replace(" ", "")
+            if fråga in ["j", "n"]:
+                break
+            else:
+                print("Välj ett giltigt alternativ (j/n)!")
 
     else:
         continue
 
     if fråga == "j":
-        ändra_svårighetsgrad = input("Vill du ändra svårighetsgrad? (j/n) ---> ").lower()
+        ändra_svårighetsgrad = input("Vill du ändra svårighetsgrad? (j/n) ---> ").lower().replace(" ", "")
         if ändra_svårighetsgrad == "j":
             while True:
                 try:
