@@ -20,8 +20,8 @@ Fel_gissningar = []
 j = 0
 
 while True:
-    gissning = input(f"Säg en bokstav! ({j}/10 fel försök) ---> ").lower()
     print("Fel gissningar:", ", ".join(Fel_gissningar).upper())
+    gissning = input(f"Säg en bokstav! ({j}/10 fel försök) ---> ").lower()
 
     if gissning in Gissat:
         print("Du har redan gissat den bokstaven!")
