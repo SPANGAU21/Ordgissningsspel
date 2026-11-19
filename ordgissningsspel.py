@@ -16,10 +16,19 @@ ord_lista = [
 ordet = random.choice(ord_lista)
 rätt = ["*"] * len(ordet)
 Gissat = []
+Fel_gissningar = []
 j = 0
 
 while True:
+    print("Fel gissningar:", ", ".join(Fel_gissningar).upper())
     gissning = input(f"Säg en bokstav! ({j}/10 fel försök) ---> ").lower()
+
+    if gissning in Gissat:
+        print("Du har redan gissat den bokstaven!")
+        continue
+
+    elif gissning not in Gissat:
+        Gissat.append(gissning)
 
     if len(gissning) != 1 or not gissning.isalpha():
         print("Skriv en bokstav!")
@@ -31,6 +40,7 @@ while True:
 
     else:
         j += 1
+        Fel_gissningar.append(gissning)
         print("Fel bokstav!")
 
     print("".join(rätt).upper())
