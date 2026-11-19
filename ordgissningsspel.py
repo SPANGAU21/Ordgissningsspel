@@ -1,19 +1,36 @@
 import random
 
-ord_lista = [
-    "äpple", "bil", "dator", "hund", "katt",
-    "hus", "skola", "bok", "telefon", "bord",
-    "stol", "fönster", "dörr", "cykel", "glass",
-    "sol", "måne", "stjärna", "hav", "skog",
-    "blomma", "träd", "gräs", "vatten", "eld",
-    "snö", "regn", "vind", "moln", "berg",
-    "springa", "hoppa", "simma", "skriva", "läsa",
-    "spela", "sjunga", "dansa", "tänka", "prata",
-    "glad", "ledsen", "snabb", "långsam", "stor",
-    "liten", "rolig", "svår", "enkel", "vacker"
+lätta_ord = [
+    "bil", "hus", "hund", "katt", "sol", "bok", "mat", "glass",
+    "stol", "bord", "sko", "boll", "fisk", "träd", "blomma",
+    "skola", "dator", "mobil", "cykel", "fönster", "dörr",
+    "måne", "stjärna", "hav", "skog", "regn", "snö", "vind",
+    "klocka", "penna", "papper", "nyckel", "väska", "jacka",
+    "mössa", "handske", "lampa", "spegel", "tavla", "soffa",
+    "säng", "kudde", "tårta", "pizza", "banan", "äpple",
+    "päron", "orange", "tomat", "potatis", "morot", "gurka"
 ]
-
-ordet = random.choice(ord_lista)
+svåra_ord = [
+    "elektricitet", "astronomi", "arkitektur", "programmering",
+    "laboratorium", "demokrati", "civilisation", "experiment",
+    "psykologi", "filosofi", "teknologi", "geografi",
+    "meteorologi", "konstellation", "gravitation", "infrastruktur",
+    "kommunikation", "innovation", "perspektiv", "imagination",
+    "komplikation", "observation", "hypotes", "parallell",
+    "symmetri", "karaktär", "strategi", "analys",
+    "konstruktion", "organisation", "administration",
+    "entreprenör", "ekosystem", "biologisk", "kristallisation",
+    "universum", "atmosfär", "kontinent", "demonstration",
+    "kategorisering", "individualism", "revolution",
+    "mysterium", "labyrint", "schackmästare", "självständighet",
+    "överenskommelse", "förutsättning", "tillväxt",
+    "samhällsutveckling", "frekvens"
+]
+svårighetsgrad = input("Välj svårighetsgrad (lätt/svår): ").lower()
+if svårighetsgrad == "lätt":
+    ordet = random.choice(lätta_ord)
+elif svårighetsgrad == "svår":
+    ordet = random.choice(svåra_ord)
 rätt = ["*"] * len(ordet)
 Gissat = []
 Fel_gissningar = []
@@ -57,7 +74,11 @@ while True:
         continue
 
     if fråga == "j":
-        ordet = random.choice(ord_lista)
+        svårighetsgrad = input("Välj svårighetsgrad (lätt/svår): ").lower()
+        if svårighetsgrad == "lätt":
+            ordet = random.choice(lätta_ord)
+        elif svårighetsgrad == "svår":
+            ordet = random.choice(svåra_ord)
         rätt = ["*"] * len(ordet)
         j = 0
         Gissat = []
